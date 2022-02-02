@@ -148,9 +148,20 @@ class Scrambler {
     dataError() {
         let textArray = this.text.split("");
         let chance = 0;
+        let error = false;
         for (let x = 0; x < textArray.length;x++) {
-            if (randNum(chance) == 1) {}
-            chance += 1/textArray;
+            if (randNum(chance) >= 1) {
+                error = true;
+            }
+            chance += 0.61/textArray.length;
+            if (error === true) {
+                if (Binairy.hasOwnProperty(textArray[x])) {
+                    textArray[x] = Binairy[textArray[x]];
+                }
+                else {
+                    textArray[x] = "00000000";
+                }
+            }
         }
         this.text = textArray.join("");
     }
