@@ -1,7 +1,14 @@
-const letters = Array.from(Array(26)).map((e, i) => i + 65);
+let letters = Array.from(Array(52)).map(
+    (e, i) => {
+        if ((i + 65) < 91) {
+            return (i + 65);
+        }
+        else {
+            return (i + 71);
+        }
+    });
 const alphabet = letters.map((x) => String.fromCharCode(x))
-
-const charCode = Array.from(Array(94)).map((e, i) => i + 33);
+const charCode = Array.from(Array(94)).map((i) => i + 33);
 let Binairy = {}
 for (char in charCode) {
     Binairy[String.fromCharCode(charCode[char])] = (charCode[char] >>> 0).toString(2);
@@ -129,6 +136,6 @@ function randNum(max,floor=null) {
 let text = "Almost before we knew it, we had left the ground.";
 let text2 = "So do not worry, saying, 'What shall we eat?' or 'What shall we drink?' or 'What shall we wear?' For the pagans run after all these things, and your heavenly Father knows that you need them. But seek first His kingdom and His righteousness, and all these things will be given to you as well. Therefore do not worry about tomorrow, for tomorrow will worry about itself. Each day has enough trouble of its own."
 
-let scramble = new Scrambler(text2,5);
+let scramble = new Scrambler(text2);
 console.log(scramble.text);
 
