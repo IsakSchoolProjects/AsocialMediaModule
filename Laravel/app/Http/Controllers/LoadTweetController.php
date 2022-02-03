@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class LoadTweetController extends Controller
 {
     
     public function loadTweet()
     {
+        $tweets = DB::SELECT(DB::raw("SELECT * FROM tweets"));
 
-        $data = DB::SELECT(DB::raw("SELECT * FROM `users`"));
-
-        return view('index')->with('users', $data);
+        return view('index')->with('tweets', $tweets);
     }
 
 }

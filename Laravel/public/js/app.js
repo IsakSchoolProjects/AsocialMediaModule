@@ -80,8 +80,12 @@ __webpack_require__.r(__webpack_exports__);
 
 function Tweets() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "w-full px-5",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_tweet__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+    className: "w-full px-5 flex flex-col gap-8",
+    children: tweets.map(function (tweet) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_tweet__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        tweet: tweet
+      }, tweet.id);
+    })
   });
 }
 
@@ -187,17 +191,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Tweet() {
+function Tweet(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "bg-gray-200 w-full",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-      className: " bg-green-200",
+      className: "bg-green-200",
       src: "",
       alt: "En stor bild p\xE5 en anka"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
         className: "text-xs",
-        children: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed rerum molestiae autem ab quidem unde explicabo, iste aperiam nisi illum nam voluptas laudantium error tempora deleniti dolores, eligendi incidunt cupiditate ipsam omnis aut accusamus vero! Harum molestias sed saepe sint totam facilis iusto placeat eveniet atque temporibus delectus porro ab amet quisquam possimus fugiat corporis reiciendis dolores consequatur ad, dolorum doloremque maiores quod sunt. Consequuntur ad sequi sint porro ullam dolorem accusamus perspiciatis. Aliquam expedita eligendi, quisquam adipisci saepe, in esse alias exercitationem, deleniti repudiandae perferendis! Illo veniam perferendis atque eligendi quisquam dolore similique necessitatibus! Sapiente ea expedita tempore autem."
+        children: props.tweet.content
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "flex",

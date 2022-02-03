@@ -15,6 +15,10 @@
     <body>
         <div id="root"></div>
 
+        <script>
+            let tweets = {!! json_encode($tweets) !!}
+        </script>
+        
         <script src={{ mix("js/app.js") }}></script>
     </body>
 </html>
