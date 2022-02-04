@@ -8,7 +8,7 @@ export default function Tweet(props) {
             <img className="bg-green-200" src="" alt="En stor bild på en anka" />
             {/* Text content */}
             <div>
-                <p className="text-xs">{props.tweet.content}</p>
+                {/* <p className="text-xs">{props.tweet.content}</p> */}
             </div>
             {/* Like share comment */}
             <div className="flex">
