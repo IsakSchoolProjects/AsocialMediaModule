@@ -1,5 +1,5 @@
 const letters = Array.from(Array(52)).map(
-    (i) => {
+    (e,i) => {
         if ((i + 65) < 91) {
             return (i + 65);
         }
@@ -77,7 +77,7 @@ class Scrambler {
                 }
             }
             else {
-                if (randNum(100) <= 1) {
+                if (randNum(70) <= 1) {
                     textArray.splice(x,0,".");
                 }
             }
@@ -101,7 +101,7 @@ class Scrambler {
         this.text = textArray.join("");
     }
     
-    // Randomly "forgets" some length of the text
+    // Randomly "forgets" the rest of the text after a certain point, which's bound by the length of the text
     airHead() {
         let textArray = this.text.split("");
         let temp = randNum(this.text.length);
@@ -148,6 +148,6 @@ function randNum(max,floor=null) {
 let text = "Almost before we knew it, we had left the ground.";
 let text2 = "So do not worry, saying, 'What shall we eat?' or 'What shall we drink?' or 'What shall we wear?' For the pagans run after all these things, and your heavenly Father knows that you need them. But seek first His kingdom and His righteousness, and all these things will be given to you as well. Therefore do not worry about tomorrow, for tomorrow will worry about itself. Each day has enough trouble of its own."
 
-let scramble = new Scrambler(text2);
+let scramble = new Scrambler(text2,2);
 console.log(scramble.text);
 
