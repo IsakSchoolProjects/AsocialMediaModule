@@ -61,6 +61,39 @@ if (document.getElementById('root')) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Profile.js":
+/*!********************************************!*\
+  !*** ./resources/js/components/Profile.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Profile)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function Profile() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    className: "",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      className: "bg-blue-300 mr-8 px-10 mt-4 flex flex-col gap-10",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
+        src: "",
+        alt: "ProfilBild"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+        children: "Emil \xC5berg"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+        children: "Logga ut"
+      })]
+    })
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/Tweets.js":
 /*!*******************************************!*\
   !*** ./resources/js/components/Tweets.js ***!
@@ -80,8 +113,12 @@ __webpack_require__.r(__webpack_exports__);
 
 function Tweets() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "w-full px-5",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_tweet__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+    className: "w-full px-5 flex flex-col gap-8",
+    children: tweets.map(function (tweet) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_tweet__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        tweet: tweet
+      }, tweet.id);
+    })
   });
 }
 
@@ -100,31 +137,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Tweets__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tweets */ "./resources/js/components/Tweets.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Profile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Profile */ "./resources/js/components/Profile.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 
 function Main() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "bg-blue-200 flex grow",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "bg-blue-300 absolute left-16 px-10 mt-4 flex flex-col gap-10",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-        src: "",
-        alt: "ProfilBild"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        children: "Emil \xC5berg"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-        children: "Logga ut"
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "flex mx-auto -translate-x-24 ",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Profile__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "bg-blue-300 flex flex-col items-center",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+          className: "text-6xl my-5",
+          children: "Start exploring"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Tweets__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "bg-blue-300 w-1/2 flex flex-col items-center mx-auto ",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-        className: "text-6xl my-5",
-        children: "Start exploring"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Tweets__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
-    })]
+    })
   });
 }
 
@@ -187,29 +219,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Tweet() {
+function Tweet(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    className: "bg-gray-200 w-full",
+    className: "bg-gray-200 w-full flex flex-col gap-2 p-4 rounded-md",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-      className: " bg-green-200",
+      className: "bg-green-200",
       src: "",
       alt: "En stor bild p\xE5 en anka"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
         className: "text-xs",
-        children: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed rerum molestiae autem ab quidem unde explicabo, iste aperiam nisi illum nam voluptas laudantium error tempora deleniti dolores, eligendi incidunt cupiditate ipsam omnis aut accusamus vero! Harum molestias sed saepe sint totam facilis iusto placeat eveniet atque temporibus delectus porro ab amet quisquam possimus fugiat corporis reiciendis dolores consequatur ad, dolorum doloremque maiores quod sunt. Consequuntur ad sequi sint porro ullam dolorem accusamus perspiciatis. Aliquam expedita eligendi, quisquam adipisci saepe, in esse alias exercitationem, deleniti repudiandae perferendis! Illo veniam perferendis atque eligendi quisquam dolore similique necessitatibus! Sapiente ea expedita tempore autem."
+        children: props.tweet.content
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "flex",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
         className: "ml-4",
-        children: "Like"
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+          className: "fas fa-thumbs-up"
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
         className: "mx-auto",
-        children: "dislike"
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+          className: "far fa-comments"
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
         className: "mr-4",
-        children: "Comment"
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+          className: "fas fa-thumbs-down"
+        })
       })]
     })]
   });
