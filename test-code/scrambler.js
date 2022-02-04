@@ -1,5 +1,5 @@
-let letters = Array.from(Array(52)).map(
-    (e, i) => {
+const letters = Array.from(Array(52)).map(
+    (i) => {
         if ((i + 65) < 91) {
             return (i + 65);
         }
@@ -17,12 +17,13 @@ for (char in charCode) {
 class Scrambler {
     constructor(text,select=null) {
         this.text = text;
-
-        let selector = select;
+        
+        let selector = Math.floor(parseInt(select));
         if (selector === null) {
             selector = randNum(5);
         }
 
+        // Selects a method using selector
         switch (selector) {
             case 0:
                 this.lowercase();
@@ -45,17 +46,28 @@ class Scrambler {
         }
     }
 
-    // Randomly change certain x to others
+    // Turns all letters to lowercase
+    lowercase() {
+        this.text = this.text.toLowerCase();
+    }
+
+    // Randomly changes certain letters to random ones
     randomScramble() {
         let textArray = this.text.split("");
         let currentPos = randNum(5);
         while (currentPos < textArray.length) {
-            textArray[currentPos] = alphabet[randNum(alphabet.length,true)];
-            currentPos += randNum(textArray.length/10);
+            if (alphabet.includes(textArray[currentPos])) {
+                textArray[currentPos] = alphabet[randNum(alphabet.length,true)];
+                currentPos += randNum(textArray.length/10);
+            }
+            else {
+                currentPos++;
+            }
         }
         this.text = textArray.join("");
     }
 
+    // Randomly inputs punctuation marks where there aren't any and randomly deletes those that are there already
     punctuationError() {
         let textArray = this.text.split("");
         for (let x = 0; x <= textArray.length;x++) {
@@ -65,7 +77,7 @@ class Scrambler {
                 }
             }
             else {
-                if (randNum(50) <= 1) {
+                if (randNum(100) <= 1) {
                     textArray.splice(x,0,".");
                 }
             }
@@ -73,6 +85,7 @@ class Scrambler {
         this.text = textArray.join("");
     }
 
+    // 
     forgotCapsLock() {
         let textArray = this.text.split("");
         for (let x = 0; x < textArray.length;x++) {
@@ -87,11 +100,8 @@ class Scrambler {
         }
         this.text = textArray.join("");
     }
-
-    lowercase() {
-        this.text = this.text.toLowerCase();
-    }
     
+    // Randomly "forgets" some length of the text
     airHead() {
         let textArray = this.text.split("");
         let temp = randNum(this.text.length);
@@ -102,6 +112,7 @@ class Scrambler {
         this.text = textArray.join("");
     }
 
+    // Rolls a random chance for each letter and increases it until it "activates", which's when it starts to convert all the remaining characters to binairy ASCII
     dataError() {
         let textArray = this.text.split("");
         let chance = 0;
@@ -124,6 +135,7 @@ class Scrambler {
     }
 }
 
+// Creates a random number between 0 and max and if floor is true then it uses Math.floor(), Other wise it uses math.round()
 function randNum(max,floor=null) {
     if (floor === true) {
         return Math.floor(Math.random() * (max+1));
