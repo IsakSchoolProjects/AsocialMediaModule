@@ -14,7 +14,7 @@
     </head>
     <body>
         <div id="root"></div>
-
+        
         <script>
             let tweets = {!! json_encode($tweets) !!}
         </script>
