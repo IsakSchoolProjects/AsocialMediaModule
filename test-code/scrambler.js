@@ -8,39 +8,59 @@ const letters = Array.from(Array(52)).map(
         }
     });
 const alphabet = letters.map((x) => String.fromCharCode(x))
-const charCode = Array.from(Array(94)).map((i) => i + 33);
+const charCode = Array.from(Array(94)).map((e,i) => i + 33);
 let Binairy = {}
 for (char in charCode) {
     Binairy[String.fromCharCode(charCode[char])] = (charCode[char] >>> 0).toString(2);
 }
 
 class Scrambler {
-    constructor(text,select=null) {
+    constructor(text,select=null,Log) {
         this.text = text;
-        
-        let selector = Math.floor(parseInt(select));
-        if (selector === null) {
-            selector = randNum(5);
+        let selector;
+        if (select !== null) {
+            selector = Math.floor(parseInt(select));
+        }
+        else {
+            selector = randNum(6);
         }
 
         // Selects a method using selector
         switch (selector) {
             case 0:
+                if (Log === true) {
+                    console.log("Lowercase");
+                }
                 this.lowercase();
                 break;
             case 1:
+                if (Log === true) {
+                    console.log("RandomScramble");
+                }
                 this.randomScramble();
                 break;
             case 2:
+                if (Log === true) {
+                    console.log("PuncuationError");
+                }
                 this.punctuationError();
                 break;
             case 3:
+                if (Log === true) {
+                    console.log("ForgotCapsLock");
+                }
                 this.forgotCapsLock();
                 break;
             case 4:
+                if (Log === true) {
+                    console.log("AirHead");
+                }
                 this.airHead();
                 break;
             case 5:
+                if (Log === true) {
+                    console.log("DataError");
+                }
                 this.dataError();
                 break;
         }
@@ -138,7 +158,7 @@ class Scrambler {
 // Creates a random number between 0 and max and if floor is true then it uses Math.floor(), Other wise it uses math.round()
 function randNum(max,floor=null) {
     if (floor === true) {
-        return Math.floor(Math.random() * (max+1));
+        return Math.floor(Math.random() * max);
     }
     else {
         return Math.round(Math.random() * max + Number.EPSILON);
@@ -148,6 +168,6 @@ function randNum(max,floor=null) {
 let text = "Almost before we knew it, we had left the ground.";
 let text2 = "So do not worry, saying, 'What shall we eat?' or 'What shall we drink?' or 'What shall we wear?' For the pagans run after all these things, and your heavenly Father knows that you need them. But seek first His kingdom and His righteousness, and all these things will be given to you as well. Therefore do not worry about tomorrow, for tomorrow will worry about itself. Each day has enough trouble of its own."
 
-let scramble = new Scrambler(text2,2);
+let scramble = new Scrambler(text2);
 console.log(scramble.text);
 
