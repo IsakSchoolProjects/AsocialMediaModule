@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoadTweetController;
+use App\Http\Controllers\CreateController;
 use App\Http\Controllers\Auth\AuthController;
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,6 @@ Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.pos
 
 Route::get('registration', [AuthController::class, 'registration'])->name('register');
 Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
+
+Route::get('/create', [CreateController::class, 'index']);
+Route::post('post-create', [CreateController::class, 'CreateTweet'])->name('createTweet.post');

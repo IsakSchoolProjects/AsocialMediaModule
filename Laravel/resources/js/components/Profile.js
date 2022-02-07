@@ -5,6 +5,7 @@ export default function Profile() {
         <div className="bg-blue-300 px-4 mt-4 flex flex-col gap-10 absolute right-28 ">
             <img src="" alt="ProfilBild" />
             <p>Emil Åberg</p>
+            <a id="Create" href="create">Skapa Tweet</a>
             <button>Logga ut</button>
         </div>
       </div>
