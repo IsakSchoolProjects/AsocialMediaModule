@@ -1,5 +1,5 @@
 const letters = Array.from(Array(52)).map(
-    (i) => {
+    (e,i) => {
         if ((i + 65) < 91) {
             return (i + 65);
         }
@@ -8,39 +8,59 @@ const letters = Array.from(Array(52)).map(
         }
     });
 const alphabet = letters.map((x) => String.fromCharCode(x))
-const charCode = Array.from(Array(94)).map((i) => i + 33);
+const charCode = Array.from(Array(94)).map((e,i) => i + 33);
 let Binairy = {}
 for (char in charCode) {
     Binairy[String.fromCharCode(charCode[char])] = (charCode[char] >>> 0).toString(2);
 }
 
 class Scrambler {
-    constructor(text,select=null) {
+    constructor(text,select=null,Log) {
         this.text = text;
-        
-        let selector = Math.floor(parseInt(select));
-        if (selector === null) {
-            selector = randNum(5);
+        let selector;
+        if (select !== null) {
+            selector = Math.floor(parseInt(select));
+        }
+        else {
+            selector = randNum(6);
         }
 
         // Selects a method using selector
         switch (selector) {
             case 0:
+                if (Log === true) {
+                    console.log("Lowercase");
+                }
                 this.lowercase();
                 break;
             case 1:
+                if (Log === true) {
+                    console.log("RandomScramble");
+                }
                 this.randomScramble();
                 break;
             case 2:
+                if (Log === true) {
+                    console.log("PuncuationError");
+                }
                 this.punctuationError();
                 break;
             case 3:
+                if (Log === true) {
+                    console.log("ForgotCapsLock");
+                }
                 this.forgotCapsLock();
                 break;
             case 4:
+                if (Log === true) {
+                    console.log("AirHead");
+                }
                 this.airHead();
                 break;
             case 5:
+                if (Log === true) {
+                    console.log("DataError");
+                }
                 this.dataError();
                 break;
         }
@@ -77,7 +97,7 @@ class Scrambler {
                 }
             }
             else {
-                if (randNum(100) <= 1) {
+                if (randNum(70) <= 1) {
                     textArray.splice(x,0,".");
                 }
             }
@@ -101,7 +121,7 @@ class Scrambler {
         this.text = textArray.join("");
     }
     
-    // Randomly "forgets" some length of the text
+    // Randomly "forgets" the rest of the text after a certain point, which's bound by the length of the text
     airHead() {
         let textArray = this.text.split("");
         let temp = randNum(this.text.length);
@@ -138,7 +158,7 @@ class Scrambler {
 // Creates a random number between 0 and max and if floor is true then it uses Math.floor(), Other wise it uses math.round()
 function randNum(max,floor=null) {
     if (floor === true) {
-        return Math.floor(Math.random() * (max+1));
+        return Math.floor(Math.random() * max);
     }
     else {
         return Math.round(Math.random() * max + Number.EPSILON);
