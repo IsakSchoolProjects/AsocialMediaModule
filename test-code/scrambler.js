@@ -18,7 +18,7 @@ class Scrambler {
     constructor(text,select=null,Log) {
         this.text = text;
         
-        this.Selector(select);
+        this.Selector(select,Log);
     }
 
     Selector(Selector,log) {
