@@ -13,3 +13,5 @@
  */
 
 require('./components/Index');
+
+require('./components/Home');

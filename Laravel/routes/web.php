@@ -23,9 +23,9 @@ Route::get('/index', [LoadTweetController::class, 'loadTweet']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
-// Auth
-Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
 
-Route::get('registration', [AuthController::class, 'registration'])->name('register');
-Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
+
+// Auth
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

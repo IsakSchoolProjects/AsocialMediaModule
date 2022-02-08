@@ -11,7 +11,7 @@ export default function Navbar() {
                     <a href="/login">Login</a>
                 </div>
                 <div className="bg-teal-300 py-2 px-3 rounded-sm">
-                    <a href="/registration">register</a>
+                    <a href="/register">register</a>
                 </div>
             </div>
         </nav>
