@@ -24,5 +24,5 @@
 
 @section('main')
 
-<div id="home" data="{{ $tweets }}"></div>
+<div id="home"></div>
 @endsection
