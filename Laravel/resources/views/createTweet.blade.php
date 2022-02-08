@@ -9,11 +9,12 @@
 <body>
     <h1>Welcome to hell!</h1>
     <form action="{{ route('createTweet.post') }}" method="POST" style="display: flex; flex-direction:column; gap: 10px;">
+        @csrf
         <label for="tweetName">Name</label>
-        <input type="text" id="tweetName">
+        <input type="text" id="tweetName" name="tweetName">
 
         <label for="tweetText">Tweet Text</label>
-        <textarea name="tweetBody" id="tweetText" cols="30" rows="10"></textarea>
+        <textarea name="tweetText" id="tweetText" cols="30" rows="10"></textarea>
 
         <button type="submit">Create</button>
     </form>
