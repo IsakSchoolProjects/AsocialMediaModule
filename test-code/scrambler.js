@@ -17,51 +17,59 @@ for (char in charCode) {
 class Scrambler {
     constructor(text,select=null,Log) {
         this.text = text;
-        let selector;
-        if (select !== null) {
-            selector = Math.floor(parseInt(select));
+        
+        this.Selector(select,Log);
+    }
+
+    Selector(Selector,log) {
+        let times = 6;
+        let selector = Selector;
+        if (selector !== null) {
+            selector = Math.floor(parseInt(selector));
         }
         else {
-            selector = randNum(6);
+            selector = randNum(times);
         }
 
-        // Selects a method using selector
         switch (selector) {
             case 0:
-                if (Log === true) {
+                if (log === true) {
                     console.log("Lowercase");
                 }
                 this.lowercase();
                 break;
             case 1:
-                if (Log === true) {
+                if (log === true) {
                     console.log("RandomScramble");
                 }
                 this.randomScramble();
                 break;
             case 2:
-                if (Log === true) {
+                if (log === true) {
                     console.log("PuncuationError");
                 }
                 this.punctuationError();
                 break;
             case 3:
-                if (Log === true) {
+                if (log === true) {
                     console.log("ForgotCapsLock");
                 }
                 this.forgotCapsLock();
                 break;
             case 4:
-                if (Log === true) {
+                if (log === true) {
                     console.log("AirHead");
                 }
                 this.airHead();
                 break;
             case 5:
-                if (Log === true) {
+                if (log === true) {
                     console.log("DataError");
                 }
                 this.dataError();
+                break;
+            default:
+                this.Selector(randNum(times),log)
                 break;
         }
     }

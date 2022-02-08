@@ -121,6 +121,10 @@ function Profile() {
         alt: "ProfilBild"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
         children: "Emil \xC5berg"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+        id: "Create",
+        href: "create",
+        children: "Skapa Tweet"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
         children: "Logga ut"
       })]

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoadTweetController;
+use App\Http\Controllers\CreateController;
 use App\Http\Controllers\Auth\AuthController;
 /*
 |--------------------------------------------------------------------------
