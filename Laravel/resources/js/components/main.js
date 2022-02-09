@@ -5,7 +5,6 @@ import Profile from "./Profile"
 
 export default function Main() {
 
-
     return (
         <div className="bg-blue-200 flex grow">
             <div className="flex mx-auto bg-black w-1/3">

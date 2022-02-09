@@ -34,6 +34,7 @@
                     @endauth
             @endif
         </nav>
+        
         <div id="root"></div>
 
 
