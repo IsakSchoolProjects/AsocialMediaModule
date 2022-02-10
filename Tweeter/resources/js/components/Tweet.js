@@ -1,8 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function Tweet({tweet_id, body, image}) {
+export default function Tweet({tweet_id, body, image, onTweetClick}) {
+
+    let navigate = useNavigate();
+    const routeChange = () =>{
+        let path = `tweets/${tweet_id}`;
+        navigate(path);
+    } 
+
     return (
-        <div id={tweet_id} className="bg-gray-200 w-full flex flex-col gap-2 p-4 rounded-md">
+        <div id={tweet_id} className="bg-gray-200 w-full flex flex-col gap-2 p-4 rounded-md" onClick={() => onTweetClick(tweet_id)}>
             {/* Image */}
             <img className="bg-green-200 w-1/2 mx-auto" src={image} alt="En stor bild på en anka"/>
             {/* Text content */}

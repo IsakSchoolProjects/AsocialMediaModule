@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Nav() {
     return (
@@ -8,10 +9,11 @@ export default function Nav() {
             </div>
             <div className="bg-green-500 h-full px-10 flex flex-row items-center gap-10">
                 <div className="bg-red-400 py-2 px-3 rounded-sm">
-                    <a href="/login">Login</a>
+                    {/* <a href="/login">Login</a> */}
+                    <Link to="/login">Login</Link>
                 </div>
                 <div className="bg-teal-300 py-2 px-3 rounded-sm">
-                    <a href="/register">register</a>
+                    <Link to="/register">Register</Link>
                 </div>
             </div>
         </nav>

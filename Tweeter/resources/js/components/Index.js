@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import {BrowserRouter as Router, Routes, Route, useParams} from 'react-router-dom';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 import Nav from './Nav';
 import Main from './Main';
 import Footer from './Footer';
+import UserTweet from '../routes/UserTweet';
+import Login from '../routes/Login';
+import Register from '../routes/Register';
 
-// (function () {
-        
-// })()
 
 function Index() {
     const [tweets, setTweets] = useState([])
+
+    let { tweet_Id } = useParams();
 
     useEffect(() => {
         axios
@@ -26,16 +29,16 @@ function Index() {
     
     
     return (
-        <div className="">
-            <Nav />
-            {/* <ul>
-                {tweets.map(tweet => (
-                    <li key={tweet.id}> {tweet.body} </li>
-                ))}
-            </ul> */}
-            <Main data={tweets} />
-            <Footer />
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element={<><Nav/><Main data={tweets}/><Footer/></>}/>
+                <Route path="/login" element={<><Nav/><Login/></>} /> 
+                <Route path="/Register" element={<><Nav/><Register/></>} />
+                <Route path={`tweets`}>
+                    <Route path=":tweet_Id" element={<><Nav/><UserTweet tweet_id={tweet_Id}/></>}/>
+                </Route>   
+            </Routes>
+        </Router>
     );
 }
 
