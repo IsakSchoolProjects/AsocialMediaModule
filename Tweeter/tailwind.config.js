@@ -7,6 +7,9 @@ module.exports = {
 
     "./resources/js/components/*.js",
     "./resources/js/components/**/*.js",
+
+    "./resources/js/routes/*.jsx",
+    "./resources/js/routes/**/*.jsx",
   ],
   theme: {
     extend: {},
