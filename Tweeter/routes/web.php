@@ -13,13 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
-Route::get('/tweet/{tweet}', function () {
-    return view('index');
-});
+// Route::get('/tweet/{tweet}', function () {
+//     return view('index');
+// });
+
+Route::view('/{any}', 'index')->where('any', '.*');
 
 // Auth::routes();
 
