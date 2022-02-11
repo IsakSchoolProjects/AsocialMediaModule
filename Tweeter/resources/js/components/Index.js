@@ -35,7 +35,9 @@ function Index() {
                 <Route path="/login" element={<><Nav/><Login/></>} /> 
                 <Route path="/register" element={<><Nav/><Register/></>} />
                 <Route path={`tweet`}>
-                    <Route path=":tweet_Id" element={<><Nav/><UserTweet tweet_id={tweet_Id}/></>}/>
+                    <Route path=":tweet_Id" element={<><Nav/><UserTweet tweet_id={tweet_Id}/></>}>
+                        <Route path="comment" element={<Comments/>}/>
+                    </Route>
                 </Route>   
             </Routes>
         </Router>
@@ -46,6 +48,14 @@ export default Index;
 
 if (document.getElementById('root')) {
     ReactDOM.render(<Index />, document.getElementById('root'));
+}
+
+function Comments() {
+    return (
+        <div>
+            this is the comment section
+        </div>
+    )
 }
 
 

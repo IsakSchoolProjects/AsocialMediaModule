@@ -1,6 +1,6 @@
 import {React, useState, useEffect as onLoad} from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, Link, Outlet} from 'react-router-dom';
 
 export default function UserTweet(){
     let id = useParams().tweet_Id;
@@ -19,6 +19,19 @@ export default function UserTweet(){
             })
     },[]); 
 
+    function likeTweet()
+    {
+        alert(`you liked tweet ${userTweet.id}`)
+        // axios
+        //     .put('http://127.0.0.1:8000/api/tweet/${id}');
+    }
+    function disLikeTweet()
+    {
+        alert(`you disliked tweet ${userTweet.id}`)
+        // axios
+        //     .put('http://127.0.0.1:8000/api/tweet/${id}');
+    }
+
     return (
         
         <article className="flex mx-auto bg-black w-1/3">
@@ -34,11 +47,21 @@ export default function UserTweet(){
                         <img className="bg-green-200 w-1/2 mr-auto" src={userTweet.image} alt="En stor bild på en anka"/>
                         {/* Like share comment */}
                         <div className="flex">
-                            <span className="ml-4"><i className="fas fa-thumbs-up"></i></span>
-                            <span className="mx-auto"><i className="far fa-comments"></i></span>
-                            <span className="mr-4"><i className="fas fa-thumbs-down"></i></span>
+                            {/* Like */}
+                            <span className="ml-4" onClick={likeTweet}>
+                                <i className="fas fa-thumbs-up"></i>
+                            </span>
+                            {/* Comments */}        
+                            <span className="mx-auto">
+                                <Link to='comment'><i className="far fa-comments"></i></Link>
+                            </span>
+                            {/* Dislike */} 
+                            <span className="mr-4" onClick={disLikeTweet}>
+                                <i className="fas fa-thumbs-down"></i>
+                            </span>
                         </div>
                     </div>
+                    <Outlet/>
                 </div>
             </div>
         </article>
