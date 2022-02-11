@@ -8,7 +8,7 @@ export default function Main({data}) {
     let navigate = useNavigate();
     const routeChange = (tweet_id) =>{
         console.log(tweet_id)
-        let path = `tweets/${tweet_id}`;
+        let path = `tweet/${tweet_id}`;
         navigate(path);
     } 
     // console.log(data)

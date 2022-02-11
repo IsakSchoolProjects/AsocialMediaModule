@@ -2184,12 +2184,12 @@ function Index() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Nav__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_routes_Login__WEBPACK_IMPORTED_MODULE_7__["default"], {})]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
-        path: "/Register",
+        path: "/register",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Nav__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_routes_Register__WEBPACK_IMPORTED_MODULE_8__["default"], {})]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
-        path: "tweets",
+        path: "tweet",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
           path: ":tweet_Id",
           element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
@@ -2239,7 +2239,7 @@ function Main(_ref) {
 
   var routeChange = function routeChange(tweet_id) {
     console.log(tweet_id);
-    var path = "tweets/".concat(tweet_id);
+    var path = "tweet/".concat(tweet_id);
     navigate(path);
   }; // console.log(data)
 
@@ -2377,7 +2377,7 @@ function Tweet(_ref) {
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
 
   var routeChange = function routeChange() {
-    var path = "tweets/".concat(tweet_id);
+    var path = "tweet/".concat(tweet_id);
     navigate(path);
   };
 
@@ -2387,15 +2387,15 @@ function Tweet(_ref) {
     onClick: function onClick() {
       return onTweetClick(tweet_id);
     },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-      className: "bg-green-200 w-1/2 mx-auto",
-      src: image,
-      alt: "En stor bild p\xE5 en anka"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
         className: "text-xs",
         children: body
       })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+      className: "bg-green-200 w-1/2 mr-auto",
+      src: image,
+      alt: "En stor bild p\xE5 en anka"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "flex",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
@@ -2524,12 +2524,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 function UserTweet(_ref) {
   var tweet_id = _ref.tweet_id;
-  console.log(tweet_id);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
-      children: "sdsd"
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+      children: ["This is a Tweet: ", tweet_id]
     })
   });
 }

@@ -10,7 +10,8 @@ class TweetController extends Controller
 {
     public function index()
     {
-        return Tweet::all();
+        return Tweet::orderBy('id', 'desc')
+            ->get();
     }
 
     public function show(Tweet $tweet)

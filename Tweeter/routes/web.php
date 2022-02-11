@@ -17,7 +17,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/tweet/{tweet}', function () {
+    return view('index');
+});
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -33,8 +33,8 @@ function Index() {
             <Routes>
                 <Route path="/" element={<><Nav/><Main data={tweets}/><Footer/></>}/>
                 <Route path="/login" element={<><Nav/><Login/></>} /> 
-                <Route path="/Register" element={<><Nav/><Register/></>} />
-                <Route path={`tweets`}>
+                <Route path="/register" element={<><Nav/><Register/></>} />
+                <Route path={`tweet`}>
                     <Route path=":tweet_Id" element={<><Nav/><UserTweet tweet_id={tweet_Id}/></>}/>
                 </Route>   
             </Routes>
