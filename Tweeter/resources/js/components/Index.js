@@ -27,7 +27,7 @@ function Index() {
             })
     },[]);  
     
-    
+
     return (
         <Router>
             <Routes>
