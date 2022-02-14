@@ -7,13 +7,13 @@ export default function Main() {
 
     return (
         <div className="bg-blue-200 flex grow">
-            <div className="flex mx-auto bg-black w-1/3">
+            <article className="flex mx-auto bg-black w-1/3">
                 < Profile />
                 <div className="bg-blue-300 w-full flex flex-col items-center">
                     <h1 className="text-6xl my-5">Start exploring</h1>
                     < Tweets/>
                 </div>
-            </div>
+            </article>
         </div>
     );
 }

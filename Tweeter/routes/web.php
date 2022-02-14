@@ -13,11 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
+// Route::get('/tweet/{tweet}', function () {
+//     return view('index');
+// });
 
-Auth::routes();
+Route::view('/{any}', 'index')->where('any', '.*');
+
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

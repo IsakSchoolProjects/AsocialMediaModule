@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import from url from fontawesome to display the tweets icons */
+@import url("https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css");
