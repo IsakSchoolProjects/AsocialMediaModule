@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tensorflow Face Recognition</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body> 
-    <div id="face-finder">
-        <canvas id="canvas"></canvas>
-        <img src="test images/image.JPG" id="image"/>
-        <p id="status">Searching, this shouldn't take long...</p>
-      </div> 
-      <script src="https://unpkg.com/merge-images"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
-    <!-- <script src="C:/Users/alexander.karlsson/Desktop/M8AsocialMedia/node_modules/jimp/dist/index.js" type="module"></script> -->
-    <script src="code.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tensorflow Face Recognition</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="face-finder">
+    <canvas id="canvas"></canvas>
+    <p id="status" style="margin-top: 400px;">Searching, this shouldn't take long...</p>
+  </div>
+  <script src="https://unpkg.com/merge-images"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+  <!-- <script src="C:/Users/alexander.karlsson/Desktop/M8AsocialMedia/node_modules/jimp/dist/index.js" type="module"></script> -->
+  <script src="code.js"></script>
+</body>
+
 </html>
