@@ -8,18 +8,18 @@ import Footer from './Footer';
 import UserTweet from '../routes/UserTweet';
 import Login from '../routes/Login';
 import Register from '../routes/Register';
-
+import EditUserPost from './EditUserPost.jsx';
 
 function Index() {
     const [tweets, setTweets] = useState([])
 
-    let { tweet_Id } = useParams();
+    let tweet_Id = useParams();
 
     useEffect(() => {
         axios
             .get('http://127.0.0.1:8000/api/tweets')
             .then(res => {
-                // console.log(res)
+                console.log(res)
                 setTweets(res.data)
             })
             .catch(err => {
@@ -35,10 +35,12 @@ function Index() {
                 <Route path="/login" element={<><Nav/><Login/></>} /> 
                 <Route path="/register" element={<><Nav/><Register/></>} />
                 <Route path={`tweet`}>
-                    <Route path=":tweet_Id" element={<><Nav/><UserTweet tweet_id={tweet_Id}/></>}>
-                        <Route path="comment" element={<Comments/>}/>
+                    <Route path=":tweet_Id" element={<><Nav/><UserTweet /></>}>
+                        {/* <Route path="comment" element={<Comments/>}/> */}
+                        
                     </Route>
-                </Route>   
+                </Route>
+                <Route path={`tweet/:tweet_Id/editUserPost`} element={<><Nav/><EditUserPost/></>}/>
             </Routes>
         </Router>
     );

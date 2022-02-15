@@ -6,7 +6,6 @@ export default function UserTweet(){
     let id = useParams().tweet_Id;
     const [userTweet, setUserTweet] = useState([]);
 
-
     onLoad(() => {
         axios
             .get(`http://127.0.0.1:8000/api/tweet/${id}`)
@@ -21,16 +20,36 @@ export default function UserTweet(){
 
     function likeTweet()
     {
-        alert(`you liked tweet ${userTweet.id}`)
-        // axios
-        //     .put('http://127.0.0.1:8000/api/tweet/${id}');
+        axios
+            .put(`http://127.0.0.1:8000/api/tweet/${id}/like`)
+            .then(res => {
+                console.log(res);
+
+            })
+            .catch(err => {
+                console.log(err.response.data);
+            })
     }
     function disLikeTweet()
     {
-        alert(`you disliked tweet ${userTweet.id}`)
-        // axios
-        //     .put('http://127.0.0.1:8000/api/tweet/${id}');
+        axios
+            .put(`http://127.0.0.1:8000/api/tweet/${id}/dislike`)
+            .then(res => {
+                console.log(res);
+
+            })
+            .catch(err => {
+                console.log(err.response.data);
+            })
     }
+
+    function editPost()
+    {
+       
+            edit = true;
+
+    }
+
 
     return (
         
@@ -39,6 +58,8 @@ export default function UserTweet(){
                 <h1 className="text-6xl my-5">tweet by {userTweet.id}</h1>
                 <div className="w-full px-5 flex flex-col gap-8">
                     <div id={userTweet.id} className="bg-gray-200 w-full flex flex-col gap-2 p-4 rounded-md">
+                        {/* {if userid == tweet_id && <div>update knapp</div>} */}
+                        <Link to='editUserPost' className="ml-auto"><i className="far fa-edit text-red-800 font-bold cursor-pointer"></i></Link>
                         {/* Text content */}
                         <div>
                             <p className="text-xs">{userTweet.body}</p>
@@ -61,7 +82,7 @@ export default function UserTweet(){
                             </span>
                         </div>
                     </div>
-                    <Outlet/>
+                    {/* <Outlet/> */}
                 </div>
             </div>
         </article>

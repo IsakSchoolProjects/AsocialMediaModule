@@ -496,6 +496,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-0 {
   margin-bottom: 0px;
 }
+.ml-auto {
+  margin-left: auto;
+}
 .flex {
   display: flex;
 }
@@ -519,6 +522,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .grow {
   flex-grow: 1;
+}
+.cursor-pointer {
+  cursor: pointer;
 }
 .flex-row {
   flex-direction: row;
@@ -649,6 +655,13 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+.font-bold {
+  font-weight: 700;
+}
+.text-red-800 {
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
 }
 .antialiased {
   -webkit-font-smoothing: antialiased;

@@ -19,6 +19,21 @@ class TweetController extends Controller
         return $tweet;
     }
 
+    public function like(Tweet $tweet)
+    {
+        
+        $tweet->increment('likes', 1);
+        return $tweet;
+    }
+
+    public function dislike(Tweet $tweet)
+    {
+
+        $tweet->increment('dislikes', -1);
+        return $tweet;
+    }
+
+
     public function store(Request $request)
     {
         $tweet = Tweet::create($request->all());
