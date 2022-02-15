@@ -18,6 +18,8 @@ class CreateTweetsTable extends Migration
             $table->string('body', 512);
             $table->string('image');
             $table->integer('user_id');
+            $table->integer('likes');
+            $table->integer('dislikes');
             $table->timestamps();
         });
     }
