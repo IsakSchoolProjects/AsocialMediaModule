@@ -7,7 +7,11 @@ import Comments from '../components/Comments';
 export default function UserTweet(){
     let id = useParams().tweet_Id;
     const [userTweet, setUserTweet] = useState([]);
+    const [comments, setComments] = useState([]);
+
     const [showComments, setShowComments] = useState(false);
+    const [loadedComments, setLoadedComments] = useState(false);
+
     onLoad(() => {
         axios
             .get(`http://127.0.0.1:8000/api/tweet/${id}`)
@@ -18,6 +22,19 @@ export default function UserTweet(){
                 console.log(err)
             })
     },[]); 
+
+    // if(loadedComments)
+    // {
+    //     axios
+    //         .get(`http://127.0.0.1:8000/api/tweet/${id}/comment`)
+    //         .then(res =>{
+    //             setComments(res.data);
+    //             console.log(res);
+    //         })
+    //         .catch(err =>{
+    //             console.log(err.response.data);
+    //         })
+    // }
 
     function likeTweet()
     {
@@ -43,15 +60,31 @@ export default function UserTweet(){
                 console.log(err.response.data);
             })
     }
+    function comment()
+    {
+        setShowComments(!showComments);
+        if(!loadedComments)
+        {
+            setLoadedComments(!loadedComments);
 
-
-
+            axios
+            .get(`http://127.0.0.1:8000/api/comment/${userTweet.user_id}`)
+            .then(res =>{
+                setComments(res.data);
+                // console.log(res);
+            })
+            .catch(err =>{
+                console.log(err.response.data);
+            })
+        }
+        
+    }
     return (
         
         <article className="flex mx-auto bg-black w-1/3">
             <div className="bg-blue-300 w-full flex flex-col items-center">
                 <h1 className="text-6xl my-5">tweet by {userTweet.user_id}</h1>
-                <div className="w-full px-5 flex flex-col gap-8">
+                <div className="w-full px-5 mb-5 flex flex-col gap-8">
                     <div id={userTweet.id} className="bg-gray-200 w-full flex flex-col gap-2 p-4 rounded-md">
                         {/* {if userid == tweet_id && <div>update knapp</div>} */}
                         <Link to='editUserPost' className="ml-auto"><i className="far fa-edit text-red-800 font-bold cursor-pointer"></i></Link>
@@ -69,7 +102,7 @@ export default function UserTweet(){
                             </span>
                             {/* Comments */}        
                             <span className="mx-auto">
-                                <button onClick={() => setShowComments(!showComments)}><i className="far fa-comments"></i></button>
+                                <button onClick={comment}><i className="far fa-comments"></i></button>
                                 {/* <Link to='comment'></Link> */}
                             </span>
                             {/* Dislike */} 
@@ -79,16 +112,10 @@ export default function UserTweet(){
                         </div>
                     </div>
                     {showComments && 
-                        // array.map((item) => {
-                        //     <div>                            
-                        //         <Comments comment={item} />
-                        //     </div>
-                        // })
-                        <div>                            
-                            <Comments />
+                        <div>
+                            < Comments data={comments}/>                        
                         </div>
                     }
-                    
                 </div>
             </div>
         </article>

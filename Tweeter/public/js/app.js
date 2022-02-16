@@ -2092,56 +2092,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Comment() {
+function Comment(_ref) {
+  var body = _ref.body,
+      created_at = _ref.created_at,
+      updated_at = _ref.updated_at;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "Author"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "sdsdsdsdsdsd"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "Author"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "sdsdsdsdsdsd"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "Author"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "sdsdsdsdsdsd"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "Author"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "sdsdsdsdsdsd"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "Author"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "sdsdsdsdsdsd"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "Author"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "sdsdsdsdsdsd"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "Author"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "sdsdsdsdsdsd"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "Author"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "sdsdsdsdsdsd"
-      })]
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+      children: ["Created at ", created_at]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+      children: ["Updated at ", updated_at]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      children: body
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      children: "written by author with id: author"
     })]
   });
 }
@@ -2163,9 +2126,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
-function Comments() {
+function Comments(_ref) {
+  var data = _ref.data;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Comment__WEBPACK_IMPORTED_MODULE_0__["default"], {})
+    children: data.map(function (tweet) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Comment__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        body: tweet.body,
+        created_at: tweet.created_at,
+        updated_at: tweet.updated_at
+      }, tweet.id);
+    })
   });
 }
 
@@ -2857,7 +2827,7 @@ function Tweets(_ref) {
     className: "w-full px-5 flex flex-col gap-8",
     children: data.map(function (tweet) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Tweet__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        tweet_id: tweet.id,
+        tweet_id: tweet.user_id,
         body: tweet.body,
         image: tweet.image,
         onTweetClick: onTweetClick
@@ -3144,10 +3114,20 @@ function UserTweet() {
       userTweet = _useState2[0],
       setUserTweet = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState4 = _slicedToArray(_useState3, 2),
-      showComments = _useState4[0],
-      setShowComments = _useState4[1];
+      comments = _useState4[0],
+      setComments = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      showComments = _useState6[0],
+      setShowComments = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      loadedComments = _useState8[0],
+      setLoadedComments = _useState8[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/tweet/".concat(id)).then(function (res) {
@@ -3155,7 +3135,18 @@ function UserTweet() {
     })["catch"](function (err) {
       console.log(err);
     });
-  }, []);
+  }, []); // if(loadedComments)
+  // {
+  //     axios
+  //         .get(`http://127.0.0.1:8000/api/tweet/${id}/comment`)
+  //         .then(res =>{
+  //             setComments(res.data);
+  //             console.log(res);
+  //         })
+  //         .catch(err =>{
+  //             console.log(err.response.data);
+  //         })
+  // }
 
   function likeTweet() {
     axios__WEBPACK_IMPORTED_MODULE_1___default().put("http://127.0.0.1:8000/api/tweet/".concat(id, "/like")).then(function (res) {
@@ -3173,6 +3164,19 @@ function UserTweet() {
     });
   }
 
+  function comment() {
+    setShowComments(!showComments);
+
+    if (!loadedComments) {
+      setLoadedComments(!loadedComments);
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/comment/".concat(userTweet.user_id)).then(function (res) {
+        setComments(res.data); // console.log(res);
+      })["catch"](function (err) {
+        console.log(err.response.data);
+      });
+    }
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("article", {
     className: "flex mx-auto bg-black w-1/3",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -3181,7 +3185,7 @@ function UserTweet() {
         className: "text-6xl my-5",
         children: ["tweet by ", userTweet.user_id]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "w-full px-5 flex flex-col gap-8",
+        className: "w-full px-5 mb-5 flex flex-col gap-8",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           id: userTweet.id,
           className: "bg-gray-200 w-full flex flex-col gap-2 p-4 rounded-md",
@@ -3211,9 +3215,7 @@ function UserTweet() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
               className: "mx-auto",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-                onClick: function onClick() {
-                  return setShowComments(!showComments);
-                },
+                onClick: comment,
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
                   className: "far fa-comments"
                 })
@@ -3226,15 +3228,10 @@ function UserTweet() {
               })
             })]
           })]
-        }), showComments &&
-        /*#__PURE__*/
-        // array.map((item) => {
-        //     <div>                            
-        //         <Comments comment={item} />
-        //     </div>
-        // })
-        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Comments__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+        }), showComments && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Comments__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            data: comments
+          })
         })]
       })]
     })

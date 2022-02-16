@@ -6,7 +6,7 @@ export default function Tweets({data, onTweetClick}) {
     return (
         <div className="w-full px-5 flex flex-col gap-8">
             {data.map(tweet => {
-                return < Tweet key={tweet.id} tweet_id={tweet.id} body={tweet.body} image={tweet.image} onTweetClick={onTweetClick}/>
+                return < Tweet key={tweet.id} tweet_id={tweet.user_id} body={tweet.body} image={tweet.image} onTweetClick={onTweetClick}/>
             })}
         </div>
     );

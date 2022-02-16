@@ -22,7 +22,7 @@ class CommentSeeder extends Seeder
         for ($i = 0; $i < 50; $i++) { 
             Comment::create([
                 'body' => $faker->text(),
-                'user_id' => $faker->randomDigit(),
+                'user_id' => $faker->numberBetween($min = 10, $max = 50),
                 'commented' => '',
             ]);
         }

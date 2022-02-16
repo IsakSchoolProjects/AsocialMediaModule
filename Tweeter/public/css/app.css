@@ -508,6 +508,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .ml-auto {
   margin-left: auto;
 }
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
 .flex {
   display: flex;
 }
@@ -641,6 +644,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .p-0 {
   padding: 0px;
+}
+.p-5 {
+  padding: 1.25rem;
 }
 .px-12 {
   padding-left: 3rem;

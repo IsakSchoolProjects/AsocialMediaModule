@@ -7,7 +7,7 @@ use App\Models\Tweet;
 use Illuminate\Support\Facades\Redis;
 
 use App\Http\Controllers\TweetController;
-use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CommentsController;
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
@@ -30,13 +30,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('tweets', [TweetController::class, 'index']);
 Route::get('tweet/{tweet}', [TweetController::class, 'show']);
 
+Route::get('comment/{id}', [CommentsController::class, 'show']);
+
 // Like Dislikes
 Route::put('tweet/{tweet}/like', [TweetController::class, 'like']);
 Route::put('tweet/{tweet}/dislike', [TweetController::class, 'dislike']);
 
 // Route pointing to update function in tweetcontroller at a put request
 Route::put('tweets/{tweet}', [TweetController::class, 'update']);
-
 
 Route::post('tweets', [TweetController::class, 'store']);
 Route::delete('tweets/{tweet}', [TweetController::class, 'delete']);
