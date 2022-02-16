@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {BrowserRouter as Router, Routes, Route, useParams} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, useParams, Switch} from 'react-router-dom';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 import Nav from './Nav';
@@ -9,6 +9,8 @@ import UserTweet from '../routes/UserTweet';
 import Login from '../routes/Login';
 import Register from '../routes/Register';
 import EditUserPost from './EditUserPost.jsx';
+import CreateTweet from './CreateTweet';
+import Comments from './Comments';
 
 function Index() {
     const [tweets, setTweets] = useState([])
@@ -37,10 +39,11 @@ function Index() {
                 <Route path={`tweet`}>
                     <Route path=":tweet_Id" element={<><Nav/><UserTweet /></>}>
                         {/* <Route path="comment" element={<Comments/>}/> */}
-                        
                     </Route>
                 </Route>
                 <Route path={`tweet/:tweet_Id/editUserPost`} element={<><Nav/><EditUserPost/></>}/>
+                <Route exact path="createtweet" element={<><Nav/><CreateTweet/></>} />
+                
             </Routes>
         </Router>
     );
@@ -52,12 +55,6 @@ if (document.getElementById('root')) {
     ReactDOM.render(<Index />, document.getElementById('root'));
 }
 
-function Comments() {
-    return (
-        <div>
-            this is the comment section
-        </div>
-    )
-}
+
 
 

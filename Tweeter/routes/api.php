@@ -28,14 +28,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('tweets', [TweetController::class, 'index']);
 Route::get('tweet/{tweet}', [TweetController::class, 'show']);
 
+// Like Dislikes
 Route::put('tweet/{tweet}/like', [TweetController::class, 'like']);
-
 Route::put('tweet/{tweet}/dislike', [TweetController::class, 'dislike']);
 
+// Route pointing to update function in tweetcontroller at a put request
 Route::put('tweets/{tweet}', [TweetController::class, 'update']);
 
+
+Route::post('tweets', [TweetController::class, 'store']);
+
 Route::group(['middleware' => 'auth:api'], function() {
-    Route::post('tweets', [TweetController::class, 'store']);
+    // Route::post('tweets', [TweetController::class, 'store']);
     // Route::put('tweets/{tweet}', [TweetController::class, 'update']);
     Route::delete('tweets/{tweet}', [TweetController::class, 'delete']);
 });

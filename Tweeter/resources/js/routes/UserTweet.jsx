@@ -1,16 +1,17 @@
 import {React, useState, useEffect as onLoad} from 'react';
 import axios from 'axios';
-import { useParams, Link, Outlet} from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import Comments from '../components/Comments';
+
 
 export default function UserTweet(){
     let id = useParams().tweet_Id;
     const [userTweet, setUserTweet] = useState([]);
-
+    const [showComments, setShowComments] = useState(false);
     onLoad(() => {
         axios
             .get(`http://127.0.0.1:8000/api/tweet/${id}`)
             .then(res => {
-                // console.log(res.data);
                 setUserTweet(res.data)
             })
             .catch(err => {
@@ -43,19 +44,13 @@ export default function UserTweet(){
             })
     }
 
-    function editPost()
-    {
-       
-            edit = true;
-
-    }
 
 
     return (
         
         <article className="flex mx-auto bg-black w-1/3">
             <div className="bg-blue-300 w-full flex flex-col items-center">
-                <h1 className="text-6xl my-5">tweet by {userTweet.id}</h1>
+                <h1 className="text-6xl my-5">tweet by {userTweet.user_id}</h1>
                 <div className="w-full px-5 flex flex-col gap-8">
                     <div id={userTweet.id} className="bg-gray-200 w-full flex flex-col gap-2 p-4 rounded-md">
                         {/* {if userid == tweet_id && <div>update knapp</div>} */}
@@ -74,7 +69,8 @@ export default function UserTweet(){
                             </span>
                             {/* Comments */}        
                             <span className="mx-auto">
-                                <Link to='comment'><i className="far fa-comments"></i></Link>
+                                <button onClick={() => setShowComments(!showComments)}><i className="far fa-comments"></i></button>
+                                {/* <Link to='comment'></Link> */}
                             </span>
                             {/* Dislike */} 
                             <span className="mr-4" onClick={disLikeTweet}>
@@ -82,7 +78,11 @@ export default function UserTweet(){
                             </span>
                         </div>
                     </div>
-                    {/* <Outlet/> */}
+                    {showComments && 
+                    <div>
+                        <Comments />
+                    </div>}
+                    
                 </div>
             </div>
         </article>
