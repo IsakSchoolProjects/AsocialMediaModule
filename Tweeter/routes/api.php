@@ -7,6 +7,8 @@ use App\Models\Tweet;
 use Illuminate\Support\Facades\Redis;
 
 use App\Http\Controllers\TweetController;
+use App\Http\Controllers\CommentController;
+
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -37,11 +39,12 @@ Route::put('tweets/{tweet}', [TweetController::class, 'update']);
 
 
 Route::post('tweets', [TweetController::class, 'store']);
+Route::delete('tweets/{tweet}', [TweetController::class, 'delete']);
 
 Route::group(['middleware' => 'auth:api'], function() {
     // Route::post('tweets', [TweetController::class, 'store']);
     // Route::put('tweets/{tweet}', [TweetController::class, 'update']);
-    Route::delete('tweets/{tweet}', [TweetController::class, 'delete']);
+    // Route::delete('tweets/{tweet}', [TweetController::class, 'delete']);
 });
 
 // Register a new User

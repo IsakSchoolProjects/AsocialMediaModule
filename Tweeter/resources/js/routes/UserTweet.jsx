@@ -79,9 +79,15 @@ export default function UserTweet(){
                         </div>
                     </div>
                     {showComments && 
-                    <div>
-                        <Comments />
-                    </div>}
+                        // array.map((item) => {
+                        //     <div>                            
+                        //         <Comments comment={item} />
+                        //     </div>
+                        // })
+                        <div>                            
+                            <Comments />
+                        </div>
+                    }
                     
                 </div>
             </div>

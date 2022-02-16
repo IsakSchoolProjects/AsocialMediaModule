@@ -4,8 +4,38 @@ export default function Comment() {
 
     return (
         <div>
-            <p>Author</p>
-            <p>Commentblah blah blah</p>
+            <div>
+                <p>Author</p>
+                <p>sdsdsdsdsdsd</p>
+            </div>
+            <div>
+                <p>Author</p>
+                <p>sdsdsdsdsdsd</p>
+            </div>
+            <div>
+                <p>Author</p>
+                <p>sdsdsdsdsdsd</p>
+            </div>
+            <div>
+                <p>Author</p>
+                <p>sdsdsdsdsdsd</p>
+            </div>
+            <div>
+                <p>Author</p>
+                <p>sdsdsdsdsdsd</p>
+            </div>
+            <div>
+                <p>Author</p>
+                <p>sdsdsdsdsdsd</p>
+            </div>
+            <div>
+                <p>Author</p>
+                <p>sdsdsdsdsdsd</p>
+            </div>
+            <div>
+                <p>Author</p>
+                <p>sdsdsdsdsdsd</p>
+            </div>
         </div>
     )
 }

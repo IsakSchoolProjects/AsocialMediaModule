@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {BrowserRouter as Router, Routes, Route, useParams, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, useParams} from 'react-router-dom';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 import Nav from './Nav';
@@ -55,6 +55,13 @@ if (document.getElementById('root')) {
     ReactDOM.render(<Index />, document.getElementById('root'));
 }
 
-
+function Warning()
+{
+    return (
+        <div>
+            you rlly want to delete this tweet?
+        </div>
+    )
+}
 
 
