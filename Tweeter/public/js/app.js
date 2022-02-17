@@ -2097,7 +2097,7 @@ function Comment(_ref) {
       created_at = _ref.created_at,
       updated_at = _ref.updated_at;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
       children: ["Created at ", created_at]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
       children: ["Updated at ", updated_at]
@@ -2467,22 +2467,31 @@ function Index() {
       tweets = _useState2[0],
       setTweets = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      data = _useState4[0],
+      setData = _useState4[1];
+
   var tweet_Id = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_13__.useParams)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_1___default().get('http://127.0.0.1:8000/api/tweets').then(function (res) {
-      console.log(res);
-      setTweets(res.data);
+      console.log(res.data);
+      setData(res.data); // setTweets(res.data);
     })["catch"](function (err) {
       console.log(err);
     });
   }, []);
+  setTimeout(function () {
+    console.log(tweets);
+    console.log(data);
+  }, 5000);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.BrowserRouter, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Routes, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
         path: "/",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Nav__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Main__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            data: tweets
+            data: data
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Footer__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
@@ -2563,16 +2572,15 @@ function Main(_ref) {
     console.log(tweet_id);
     var path = "tweet/".concat(tweet_id);
     navigate(path);
-  }; // console.log(data)
-
+  };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("main", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "bg-blue-200 flex grow",
+      className: "bg-white flex grow",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("article", {
-        className: "flex mx-auto bg-black w-1/3",
+        className: "flex border mx-auto w-1/3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Profile__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "bg-blue-300 w-full flex flex-col items-center",
+          className: "bg-gray-100 w-full flex flex-col items-center",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
             className: "text-6xl my-5",
             children: "Start exploring"
@@ -2659,19 +2667,21 @@ __webpack_require__.r(__webpack_exports__);
 function Profile() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
     className: "relative",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      className: "bg-blue-300 px-4 mt-4 flex flex-col gap-10 absolute right-28 ",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
-        src: "",
-        alt: "ProfilBild"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-        children: "Emil \xC5berg"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-        to: "createtweet",
-        children: "Skapa Tweet"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-        children: "Logga ut"
-      })]
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      className: "bg-gray-200 px-2 py-2 mt-4 absolute right-28 w-32",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        className: "flex flex-col gap-10",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+          children: "Your Name"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          className: "bg-blue-200 px-2 py rounded-md mx-auto",
+          to: "createtweet",
+          children: "Skapa Tweet"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+          className: "bg-blue-200 px-2 py rounded-md mx-auto",
+          children: "Logga ut"
+        })]
+      })
     })
   });
 }
@@ -2713,6 +2723,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Tweet(_ref) {
   var tweet_id = _ref.tweet_id,
+      user_id = _ref.user_id,
       body = _ref.body,
       image = _ref.image,
       onTweetClick = _ref.onTweetClick;
@@ -2741,7 +2752,7 @@ function Tweet(_ref) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     id: tweet_id,
-    className: "bg-gray-200 w-full flex flex-col gap-2 p-4 rounded-md",
+    className: "w-full flex flex-col gap-2 p-4 rounded-md border-2",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "relative h-5 w-full",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -2765,18 +2776,19 @@ function Tweet(_ref) {
         })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "flex flex-col gap-2",
       onClick: function onClick() {
         return onTweetClick(tweet_id);
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-          className: "text-xs",
-          children: body
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-        className: "bg-green-200 w-1/2 mr-auto",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+        className: "w-1/2 mx-auto",
         src: image,
         alt: "En stor bild p\xE5 en anka"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          className: "text-s",
+          children: body
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "flex",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
@@ -2822,12 +2834,13 @@ __webpack_require__.r(__webpack_exports__);
 function Tweets(_ref) {
   var data = _ref.data,
       onTweetClick = _ref.onTweetClick;
-  console.log(data);
+  console.log(data.length);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "w-full px-5 flex flex-col gap-8",
     children: data.map(function (tweet) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Tweet__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        tweet_id: tweet.user_id,
+        tweet_id: tweet.id,
+        user_id: tweet.user_id,
         body: tweet.body,
         image: tweet.image,
         onTweetClick: onTweetClick
@@ -3135,18 +3148,7 @@ function UserTweet() {
     })["catch"](function (err) {
       console.log(err);
     });
-  }, []); // if(loadedComments)
-  // {
-  //     axios
-  //         .get(`http://127.0.0.1:8000/api/tweet/${id}/comment`)
-  //         .then(res =>{
-  //             setComments(res.data);
-  //             console.log(res);
-  //         })
-  //         .catch(err =>{
-  //             console.log(err.response.data);
-  //         })
-  // }
+  }, []);
 
   function likeTweet() {
     axios__WEBPACK_IMPORTED_MODULE_1___default().put("http://127.0.0.1:8000/api/tweet/".concat(id, "/like")).then(function (res) {
@@ -3178,12 +3180,12 @@ function UserTweet() {
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("article", {
-    className: "flex mx-auto bg-black w-1/3",
+    className: "flex mx-auto",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "bg-blue-300 w-full flex flex-col items-center",
+      className: "bg-green-100 w-1/3 mt-10 mx-auto flex flex-col items-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h1", {
         className: "text-6xl my-5",
-        children: ["tweet by ", userTweet.user_id]
+        children: ["tweet by ", id]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "w-full px-5 mb-5 flex flex-col gap-8",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -3195,15 +3197,15 @@ function UserTweet() {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
               className: "far fa-edit text-red-800 font-bold cursor-pointer"
             })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+            className: "w-1/2 mx-auto",
+            src: userTweet.image,
+            alt: "En stor bild p\xE5 en anka"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
               className: "text-xs",
               children: userTweet.body
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-            className: "bg-green-200 w-1/2 mr-auto",
-            src: userTweet.image,
-            alt: "En stor bild p\xE5 en anka"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "flex",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {

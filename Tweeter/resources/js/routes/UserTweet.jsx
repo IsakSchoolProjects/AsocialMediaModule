@@ -23,18 +23,6 @@ export default function UserTweet(){
             })
     },[]); 
 
-    // if(loadedComments)
-    // {
-    //     axios
-    //         .get(`http://127.0.0.1:8000/api/tweet/${id}/comment`)
-    //         .then(res =>{
-    //             setComments(res.data);
-    //             console.log(res);
-    //         })
-    //         .catch(err =>{
-    //             console.log(err.response.data);
-    //         })
-    // }
 
     function likeTweet()
     {
@@ -81,19 +69,19 @@ export default function UserTweet(){
     }
     return (
         
-        <article className="flex mx-auto bg-black w-1/3">
-            <div className="bg-blue-300 w-full flex flex-col items-center">
-                <h1 className="text-6xl my-5">tweet by {userTweet.user_id}</h1>
+        <article className="flex mx-auto">
+            <div className="bg-green-100 w-1/3 mt-10 mx-auto flex flex-col items-center">
+                <h1 className="text-6xl my-5">tweet by {id}</h1>
                 <div className="w-full px-5 mb-5 flex flex-col gap-8">
                     <div id={userTweet.id} className="bg-gray-200 w-full flex flex-col gap-2 p-4 rounded-md">
                         {/* {if userid == tweet_id && <div>update knapp</div>} */}
                         <Link to='editUserPost' className="ml-auto"><i className="far fa-edit text-red-800 font-bold cursor-pointer"></i></Link>
+                        {/* Image */}
+                        <img className="w-1/2 mx-auto" src={userTweet.image} alt="En stor bild på en anka"/>
                         {/* Text content */}
                         <div>
                             <p className="text-xs">{userTweet.body}</p>
                         </div>
-                        {/* Image */}
-                        <img className="bg-green-200 w-1/2 mr-auto" src={userTweet.image} alt="En stor bild på en anka"/>
                         {/* Like share comment */}
                         <div className="flex">
                             {/* Like */}

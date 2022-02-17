@@ -14,26 +14,33 @@ import Comments from './Comments';
 
 function Index() {
     const [tweets, setTweets] = useState([])
-
+    const [data, setData] = useState([]);
     let tweet_Id = useParams();
 
     useEffect(() => {
         axios
             .get('http://127.0.0.1:8000/api/tweets')
             .then(res => {
-                console.log(res)
-                setTweets(res.data)
+                console.log(res.data)
+                setData(res.data);
+                // setTweets(res.data);
+                
             })
             .catch(err => {
                 console.log(err)
             })
     },[]);  
     
+    setTimeout(() => {
+        console.log(tweets)
+        console.log(data)
+        
+    }, 5000);    
 
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<><Nav/><Main data={tweets}/><Footer/></>}/>
+                <Route path="/" element={<><Nav/><Main data={data}/><Footer/></>}/>
                 <Route path="/login" element={<><Nav/><Login/></>} /> 
                 <Route path="/register" element={<><Nav/><Register/></>} />
                 <Route path={`tweet`}>
